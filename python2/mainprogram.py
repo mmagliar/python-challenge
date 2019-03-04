@@ -28,34 +28,37 @@ with open(csvpath, newline='') as csvfile:
 candidatevotes = list(electionresults.keys())     
 results = list(electionresults.values())
 
-print(candidatevotes)
-print(electionresults)
-print(results)
+#Testing set
+#print(candidatevotes)
+#print(electionresults)
+#print(results)
 
 print("Election Results")
 print("------------------------------")
 print(f"Total Votes: {'{:,.0f}'.format(totalvotes)}")
 print("------------------------------")
-#print(f"{candidatevotes[0]}: {'{:,.0f}'.format(electionresults[0])}")
-#print((candidatevotes[0]), (electionresults[0]))
-print(f"{candidatevotes[0]} {(electionresults[0]/totalvotes*100)} {(electionresults[0])}")
-#print(f"{candidatevotes[0]}: {'{:,.0f}'.format(electionresults[0]/totalvotes*100)}% ({'{:,.0f}'.format(electionresults[0])})")
-# print(f"{candidatevotes[1]}: {'{:,.0f}'.format(electionresults[1]/totalvotes*100)}% ({'{:,.0f}'.format(electionresults[1])})")
-# print(f"{candidatevotes[2]}: {'{:,.0f}'.format(electionresults[2]/totalvotes*100)}% ({'{:,.0f}'.format(electionresults[2])})")
-# print(f"{candidatevotes[3]}: {'{:,.0f}'.format(electionresults[3]/totalvotes*100)}% ({'{:,.0f}'.format(electionresults[3])})")
-print(f"Winner: {results[0]}")
-
-
-# output_path = os.path.join('resource', 'output_data.csv')
-# with open(output_path, 'w', newline='') as csvfile:
+#print(f"{candidatevotes[0]}: {'{:,.0f}'.format(results[0])}")
+#print((candidatevotes[0]), (results[0]))
+#print((candidatevotes[0]), (candidatevotes[1]), (results[0]))
+print(f"{candidatevotes[0]}: {'{:,.0f}'.format(results[0]/totalvotes*100)}% ({'{:,.0f}'.format(results[0])})")
+print(f"{candidatevotes[1]}: {'{:,.0f}'.format(results[1]/totalvotes*100)}% ({'{:,.0f}'.format(results[1])})")
+print(f"{candidatevotes[2]}: {'{:,.0f}'.format(results[2]/totalvotes*100)}% ({'{:,.0f}'.format(results[2])})")
+print(f"{candidatevotes[3]}: {'{:,.0f}'.format(results[3]/totalvotes*100)}% ({'{:,.0f}'.format(results[3])})")
+print(f"Winner: ",  (candidatevotes[0]))
+ 
+ 
+#=============================================================
+output_path = os.path.join('resource', 'output_data.csv')
+with open(output_path, 'w', newline='') as csvfile:
    
-#     csvwriter = csv.writer(csvfile)
-#     csvwriter.writerow(['Election Results'])
-#     csvwriter.writerow(['----------------------'])
-#     csvwriter.writerow([f"Total Votes: {'{:,.0f}'.format(totalvotes)}"])
-#     csvwriter.writerow(['----------------------'])
-#     csvwriter.writerow([f"Total Dollars:  {'${:,.2f}'.format(sum(totaldollars))}\n"])
-#     csvwriter.writerow([f"Average Change:  {'${:,.2f}'.format(round(sum(monthlychange)/len(monthlychange),2))}\n"])
-#     csvwriter.writerow([f"Greatest Increase in Profits: {totalmonths[maxgainmonth]} {str('${:,.2f}'.format(maxincrease))}\n"])
-#     csvwriter.writerow([f"Greatest Decrease in Profits: {totalmonths[minlossmonth]} {str('${:,.2f}'.format(maxloss))}\n"])
-#     csvwriter.writerow(['---End of Analysis---'])
+    csvwriter = csv.writer(csvfile)
+    csvwriter.writerow(['Election Results'])
+    csvwriter.writerow(['----------------------'])
+    csvwriter.writerow([f"Total Votes: {'{:,.0f}'.format(totalvotes)}"])
+    csvwriter.writerow(['----------------------'])
+    csvwriter.writerow([f"{candidatevotes[0]}: {'{:,.0f}'.format(results[0]/totalvotes*100)}% ({'{:,.0f}'.format(results[0])}\n"])
+    csvwriter.writerow([f"{candidatevotes[1]}: {'{:,.0f}'.format(results[1]/totalvotes*100)}% ({'{:,.0f}'.format(results[1])}\n"])
+    csvwriter.writerow([f"{candidatevotes[2]}: {'{:,.0f}'.format(results[2]/totalvotes*100)}% ({'{:,.0f}'.format(results[2])}\n"])
+    csvwriter.writerow([f"{candidatevotes[3]}: {'{:,.0f}'.format(results[3]/totalvotes*100)}% ({'{:,.0f}'.format(results[3])}\n"])
+    csvwriter.writerow(["Winner: ",  (candidatevotes[0])])
+    csvwriter.writerow(['---End of Analysis---'])
